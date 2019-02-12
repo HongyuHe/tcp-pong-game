@@ -19,6 +19,13 @@
 
 #define MSG_LEN 500
 
+enum class LoginStatus {
+    BUSY,
+    IN_USE,
+    SUCCESS,
+    FAILE
+};
+
 struct Message {
     char stream_in[MSG_LEN];
     char stream_out[MSG_LEN];
@@ -26,35 +33,23 @@ struct Message {
 
 class Client : public Application {
 private:
-    /**
-     * You are free to add new member variables and methods here if needed.
-     * Please do not remove the ones that are already here.
-     */
-    SOCKET sock;
     struct Message message_;
+    bool islogin_;
+    LoginStatus login_status_;
+
+    bool FirstHandShake();
+    LoginStatus SecondHandShake();
+
+    SOCKET sock;
     std::thread socketThread, stdinThread;
     CircularLineBuffer socketBuffer, stdinBuffer;
 
-    /**
-     * Assignment 2
-     *
-     * See the lab manual for the assignment description.
-     */
     void tick() override;
-
-    /**
-     * Assignment 4
-     *
-     * See the lab manual for the assignment description.
-     */
     int readFromStdin();
-
-    /**
-     * Assignment 4
-     *
-     * See the lab manual for the assignment description.
-     */
     int readFromSocket();
+
+    void createSocketAndLogIn();
+    void closeSocket();
 
     inline void threadReadFromStdin() {
         while (!isStopped()) {
@@ -74,10 +69,6 @@ private:
         }
     }
 
-    void createSocketAndLogIn();
-
-    void closeSocket();
-
     inline void startThreads() {
         socketThread = std::thread(&Client::threadReadFromSocket, this);
         stdinThread = std::thread(&Client::threadReadFromStdin, this);
@@ -95,14 +86,10 @@ public:
         stopThreads();
     }
 
-    /**
-     * Assignment 1
-     *
-     * See the lab manual for the assignment description.
-     */
     inline void setup() override {
+        islogin_ = false;
+        login_status_ = LoginStatus::FAILE;
         createSocketAndLogIn();
-        startThreads();
     }
 };
 

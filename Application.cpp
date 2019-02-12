@@ -1,5 +1,4 @@
 #include "Application.h"
-//#include "Client.h"
 #include <iostream>
 #include <stdio.h>
 
