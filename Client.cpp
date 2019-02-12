@@ -1,9 +1,7 @@
 #include "Client.h"
 #include "vusocket.h"
-//#include <io.h>
+#include <io.h>
 #include <iostream>
-
-SOCKET sockfd_g;
 
 void Client::createSocketAndLogIn() {
     sock_init();
@@ -26,25 +24,48 @@ void Client::createSocketAndLogIn() {
 
     // loop through all the results and connect to the first we can
     for(struct addrinfo* p = server_list; p != nullptr; p = p->ai_next) {
-        if ((sockfd_g = socket(p->ai_family, p->ai_socktype,
+        if ((sock = socket(p->ai_family, p->ai_socktype,
                              p->ai_protocol)) == -1) {
             perror("socket");
             sock_error_code();
             continue;
         }
-
-        if (connect((SOCKET)sockfd_g, p->ai_addr, p->ai_addrlen) == -1) {
+        if (connect((SOCKET)sock, p->ai_addr, p->ai_addrlen) == -1) {
             perror("connect");
             sock_error_code();
-            sock_close(sockfd_g);
+            sock_close(sock);
             continue;
         }
-
         break; // if we get here, we must have connected successfully
     }
-
 }
 
 void Client::closeSocket() {
-    sock_close(sockfd_g);
+    sock_close(sock);
+}
+
+int Client::readFromStdin() {
+    fgets(message_.stream_in, MSG_LEN, stdin);
+//        fflush(stdin);
+//    cout << message_.stream_in << endl;
+    return 1;
+}
+
+void Client::tick() {
+    char login_msg[] = "HELLO-FROM ";
+
+    printf("%s\n", "Connect to Sever successfully! Start chatting...\n @@@>");
+
+    cout << "Please enter your user name:";
+    readFromStdin();
+    strcat(login_msg, message_.stream_in);
+    cout << login_msg << endl;
+    int len = strlen(login_msg);
+
+    int send_len = send(sock, login_msg, len, 0);
+    if (send_len)
+        cout << "Success!- " << send_len << endl;
+    else
+        cout << "Erro" << endl;
+
 }

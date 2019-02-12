@@ -1,10 +1,10 @@
-//
-// Created by Jesse on 2019-01-09.
-//
-
 #include "Application.h"
+//#include "Client.h"
+#include <iostream>
+#include <stdio.h>
 
 void Application::run() {
+
     while (!this->stop) {
         this->tick();
     }

@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.cpp
+Application.h
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
+iostream
+-
+stdio.h
+-
+
+C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
+iostream
+-
 
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.h
 cstdlib
@@ -21,6 +31,8 @@ Client.h
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Client.h
 vusocket.h
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
+io.h
+-
 iostream
 -
 
@@ -30,6 +42,8 @@ pthread.h
 thread
 -
 string.h
+-
+iostream
 -
 Application.h
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h

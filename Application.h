@@ -5,6 +5,9 @@
 #ifndef CPP_CHAT_CLIENT_APPLICATION_H
 #define CPP_CHAT_CLIENT_APPLICATION_H
 
+#include <iostream>
+
+using namespace std;
 
 class Application {
 private:

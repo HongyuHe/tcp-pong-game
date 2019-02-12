@@ -9,7 +9,7 @@ int main(int nargs, char **argv)
     std::cout << "Setting up" << std::endl;
     app->setup();
 
-    std::cout << "Running application" << std::endl;
+//    std::cout << "Running application" << std::endl;
     app->run();
 
     delete app;

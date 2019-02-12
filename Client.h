@@ -12,11 +12,16 @@
 
 #include <thread>
 #include <string.h>
+#include <iostream>
 #include "Application.h"
 #include "vusocket.h"
 #include "CircularLineBuffer.h"
 
-extern SOCKET sockfd_g;
+#define MSG_LEN 250
+
+struct Message {
+    char stream_in[MSG_LEN];
+};
 
 class Client : public Application {
 private:
@@ -25,6 +30,7 @@ private:
      * Please do not remove the ones that are already here.
      */
     SOCKET sock;
+    struct Message message_;
     std::thread socketThread, stdinThread;
     CircularLineBuffer socketBuffer, stdinBuffer;
 
@@ -33,14 +39,14 @@ private:
      *
      * See the lab manual for the assignment description.
      */
-    void tick() override {};
+    void tick() override;
 
     /**
      * Assignment 4
      *
      * See the lab manual for the assignment description.
      */
-    int readFromStdin() {};
+    int readFromStdin();
 
     /**
      * Assignment 4
