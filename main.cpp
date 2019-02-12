@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Client.h"
 
-int main(int nargs, char **argv) {
+int main(int nargs, char **argv)
+{
     std::cout << "Computer Networks Chat Client Starting..." << std::endl;
     Application* app = new Client();
 

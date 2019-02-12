@@ -1,13 +1,14 @@
 #include "Client.h"
 #include "vusocket.h"
-#include <io.h>
+//#include <io.h>
 #include <iostream>
 
 SOCKET sockfd_g;
 
 void Client::createSocketAndLogIn() {
+    sock_init();
+
     // Connect to the server
-    int rc = 1;
     const char *server = "52.58.97.202";
     const char *server_port = "5378";
     struct addrinfo hints;
@@ -17,9 +18,9 @@ void Client::createSocketAndLogIn() {
     hints.ai_family   = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
 
-    rc = getaddrinfo(server, server_port, &hints, &server_list);
+    int rc = getaddrinfo(server, server_port, &hints, &server_list);
     if (rc != 0) {
-        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rc));
+        fprintf(stderr, "error in getaddrinfo: %d %s\n", rc, gai_strerror(rc));
         exit(1);
     }
 
@@ -28,12 +29,14 @@ void Client::createSocketAndLogIn() {
         if ((sockfd_g = socket(p->ai_family, p->ai_socktype,
                              p->ai_protocol)) == -1) {
             perror("socket");
+            sock_error_code();
             continue;
         }
 
         if (connect((SOCKET)sockfd_g, p->ai_addr, p->ai_addrlen) == -1) {
             perror("connect");
-            close(sockfd_g);
+            sock_error_code();
+            sock_close(sockfd_g);
             continue;
         }
 
@@ -43,5 +46,5 @@ void Client::createSocketAndLogIn() {
 }
 
 void Client::closeSocket() {
-    close(sockfd_g);
+    sock_close(sockfd_g);
 }
