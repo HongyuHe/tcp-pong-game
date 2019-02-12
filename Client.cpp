@@ -48,7 +48,7 @@ void Client::closeSocket() {
 
 int Client::readFromStdin() {
     fgets(message_.stream_out, MSG_LEN, stdin);
-//        fflush(stdin);
+    fflush(stdin);
 //    cout << message_.stream_out << endl;
     return strlen(message_.stream_out);
 }
@@ -75,7 +75,7 @@ void Client::tick() {
     int recv_len = readFromSocket();
     if (recv_len) {
         cout << "Read Success!- " << recv_len << endl;
-        cout << message_.stream_in << endl;
+        cout << "Server:" <<message_.stream_in << endl;
     }else
         cout << "Read Error" << endl;
 }
