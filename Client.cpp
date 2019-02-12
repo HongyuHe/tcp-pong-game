@@ -36,6 +36,8 @@ void Client::createSocketAndLogIn() {
             sock_close(sock);
             continue;
         }
+
+        printf("%s\n", "Connect to Sever successfully! Start chatting...\n @@@>");
         break; // if we get here, we must have connected successfully
     }
 }
@@ -45,27 +47,34 @@ void Client::closeSocket() {
 }
 
 int Client::readFromStdin() {
-    fgets(message_.stream_in, MSG_LEN, stdin);
+    fgets(message_.stream_out, MSG_LEN, stdin);
 //        fflush(stdin);
-//    cout << message_.stream_in << endl;
-    return 1;
+//    cout << message_.stream_out << endl;
+    return strlen(message_.stream_out);
+}
+
+int Client::readFromSocket() {
+    return recv(sock, message_.stream_in, MSG_LEN, 0);
 }
 
 void Client::tick() {
     char login_msg[] = "HELLO-FROM ";
 
-    printf("%s\n", "Connect to Sever successfully! Start chatting...\n @@@>");
-
     cout << "Please enter your user name:";
     readFromStdin();
-    strcat(login_msg, message_.stream_in);
+    strcat(login_msg, message_.stream_out);
     cout << login_msg << endl;
-    int len = strlen(login_msg);
 
+    int len = strlen(login_msg);
     int send_len = send(sock, login_msg, len, 0);
     if (send_len)
-        cout << "Success!- " << send_len << endl;
+        cout << "Send Success!- " << send_len << endl;
     else
-        cout << "Erro" << endl;
+        cout << "Send Error" << endl;
 
+    int recv_len = readFromSocket();
+    if (recv_len)
+        cout << "Read Success!- " << recv_len << endl;
+    else
+        cout << "Read Error" << endl;
 }

@@ -17,10 +17,11 @@
 #include "vusocket.h"
 #include "CircularLineBuffer.h"
 
-#define MSG_LEN 250
+#define MSG_LEN 500
 
 struct Message {
     char stream_in[MSG_LEN];
+    char stream_out[MSG_LEN];
 };
 
 class Client : public Application {
@@ -53,7 +54,7 @@ private:
      *
      * See the lab manual for the assignment description.
      */
-    int readFromSocket() {};
+    int readFromSocket();
 
     inline void threadReadFromStdin() {
         while (!isStopped()) {

@@ -3,10 +3,10 @@
 
 int main(int nargs, char **argv)
 {
-    std::cout << "Computer Networks Chat Client Starting..." << std::endl;
+//    std::cout << "Computer Networks Chat Client Starting..." << std::endl;
     Application* app = new Client();
 
-    std::cout << "Setting up" << std::endl;
+//    std::cout << "Setting up" << std::endl;
     app->setup();
 
 //    std::cout << "Running application" << std::endl;
