@@ -17,7 +17,7 @@
 #include "vusocket.h"
 #include "CircularLineBuffer.h"
 
-#define MSG_LEN 500
+#define MSG_LEN 5
 
 struct Message {
     char stream_in[MSG_LEN];

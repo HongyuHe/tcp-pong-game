@@ -73,8 +73,9 @@ void Client::tick() {
         cout << "Send Error" << endl;
 
     int recv_len = readFromSocket();
-    if (recv_len)
+    if (recv_len) {
         cout << "Read Success!- " << recv_len << endl;
-    else
+        cout << message_.stream_in << endl;
+    }else
         cout << "Read Error" << endl;
 }
