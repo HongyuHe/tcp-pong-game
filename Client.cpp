@@ -63,6 +63,7 @@ void Client::tick() {
     cout << "Please enter your user name:";
     readFromStdin();
     strcat(login_msg, message_.stream_out);
+    strcat(login_msg, "\n");
     cout << login_msg << endl;
 
     int len = strlen(login_msg);
@@ -73,9 +74,11 @@ void Client::tick() {
         cout << "Send Error" << endl;
 
     int recv_len = readFromSocket();
-    if (recv_len) {
+    if (recv_len != -1) {
         cout << "Read Success!- " << recv_len << endl;
         cout << "Server:" <<message_.stream_in << endl;
-    }else
+    }else {
         cout << "Read Error" << endl;
+        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
+    }
 }
