@@ -48,17 +48,19 @@ void Client::closeSocket() {
 
 int Client::readFromStdin() {
     fgets(message_.stream_out, MSG_LEN, stdin);
-    fflush(stdin);
+//    fflush(stdin);
 //    cout << message_.stream_out << endl;
     return strlen(message_.stream_out);
 }
 
 int Client::readFromSocket() {
+//    return read(sock, message_.stream_in, MSG_LEN);
     return recv(sock, message_.stream_in, MSG_LEN, 0);
 }
 
 void Client::tick() {
     char login_msg[] = "HELLO-FROM ";
+    memset(&message_, 0, sizeof(message_));
 
     cout << "Please enter your user name:";
     readFromStdin();
@@ -76,7 +78,7 @@ void Client::tick() {
     int recv_len = readFromSocket();
     if (recv_len != -1) {
         cout << "Read Success!- " << recv_len << endl;
-        cout << "Server:" <<message_.stream_in << endl;
+        cout << "Server:" <<message_.stream_in << strlen(message_.stream_in) << endl;
     }else {
         cout << "Read Error" << endl;
         fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
