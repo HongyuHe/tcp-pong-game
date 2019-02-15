@@ -34,11 +34,10 @@ struct Message {
 class Client : public Application {
 private:
     struct Message message_;
-    bool islogin_;
     LoginStatus login_status_;
 
     bool FirstHandShake();
-    LoginStatus SecondHandShake();
+    void SecondHandShake();
 
     SOCKET sock;
     std::thread socketThread, stdinThread;
@@ -87,7 +86,6 @@ public:
     }
 
     inline void setup() override {
-        islogin_ = false;
         login_status_ = LoginStatus::FAILE;
         createSocketAndLogIn();
     }

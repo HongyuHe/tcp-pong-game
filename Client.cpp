@@ -36,7 +36,7 @@ void Client::createSocketAndLogIn() {
             sock_close(sock);
             continue;
         }
-        printf("%s\n", "Connect to Sever successfully! Start chatting...\n @@@>");
+        printf("%s\n", ">>> Connect to Sever successfully! Start chatting...\n");
         break; // if we get here, we must have connected successfully
     }
 
@@ -45,17 +45,24 @@ void Client::createSocketAndLogIn() {
      */
     while (login_status_ != LoginStatus::SUCCESS) {
         if (FirstHandShake()) {
-            switch(SecondHandShake()) {
+            SecondHandShake();
+            switch(login_status_) {
                 case LoginStatus::BUSY:
-                    break;
+                    cout << ">>> Server is busy now. Please try later!" << endl;
+                    createSocketAndLogIn();
+                    return;
                 case LoginStatus::IN_USE:
-                    break;
+                    cout << ">>> This username is already in use. Please pick another one!" << endl;
+                    createSocketAndLogIn();
+                    return;
                 case LoginStatus::FAILE:
-                    break;
+                    cout << ">>> Something went wrong. Please try again." << endl;
+                    createSocketAndLogIn();
+                    return;
                 case LoginStatus::SUCCESS:
-                    islogin_ = true;
+                    cout << ">>> Login successfully!" << endl;
                     startThreads();
-                    break;
+                    return;
                 default:
                     break;
             }
@@ -69,43 +76,43 @@ bool Client::FirstHandShake() {
 
     char login_msg[] = "HELLO-FROM ";
 
-    cout << "Please enter your user name:";
+    cout << ">>> Please enter your user name:";
     fgets(message_.stream_out, MSG_LEN, stdin);
     strcat(login_msg, message_.stream_out);
-    cout << login_msg << endl;
+//    cout << login_msg << endl;
 
     int len = strlen(login_msg);
     int send_len = send(sock, login_msg, len, 0);
     if (send_len) {
-        cout << "Send Success! SIZE: " << send_len << endl;
+        cout << "##### Send Success! SIZE: " << send_len << endl;
         return true;
     }else {
-        cout << "Send Error" << endl;
+        cout << "##### Send Error!" << endl;
         return false;
     }
 }
 
-LoginStatus Client::SecondHandShake() {
+void Client::SecondHandShake() {
     memset(&message_.stream_in, 0x00, sizeof(message_.stream_in));
 
     int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
 
     if (recv_len != -1) {
-        cout << "Read Success! SIZE:" << recv_len << endl;
-        cout << "Server:" <<message_.stream_in << strlen(message_.stream_in) << endl;
+        cout << "##### Read Success! SIZE: " << recv_len << endl;
+        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
 
         if (!strncmp("IN-USE", message_.stream_in, 6))
-            return LoginStatus::IN_USE;
+            login_status_ = LoginStatus::IN_USE;
         else if (!strncmp("BUSY", message_.stream_in, 4))
-            return LoginStatus::BUSY;
+            login_status_ = LoginStatus::BUSY;
         else
-            return LoginStatus::SUCCESS;
+            login_status_ = LoginStatus::SUCCESS;
 
     }else {
         cout << "Read Error" << endl;
         fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
 
-        return LoginStatus::FAILE;
+        login_status_ = LoginStatus::FAILE;
     }
 }
 
@@ -114,6 +121,15 @@ void Client::closeSocket() {
 }
 
 int Client::readFromStdin() {
+    memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
+    printf(">>> ");
+    fgets(message_.stream_out, MSG_LEN, stdin);
+
+    if (!strncmp("!quit", message_.stream_out, 5)) {
+        closeSocket();
+        cout << ">>> Client shut down!" << endl;
+    }
+
     return 1;
 }
 
@@ -125,3 +141,14 @@ int Client::readFromSocket() {
 void Client::tick() {
 
 }
+
+
+
+
+
+
+
+
+
+
+
