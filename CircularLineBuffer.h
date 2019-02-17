@@ -20,7 +20,8 @@ private:
     static const int bufferSize = 100; // 4096
     char buffer[bufferSize] = {0};
     std::mutex mtx;
-    int start = 0, count = 0;
+    int start = 0;
+    int count = 0;
 public:
     int freeSpace();
 
