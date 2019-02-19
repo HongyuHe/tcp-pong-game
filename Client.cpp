@@ -1,6 +1,7 @@
 #include "Client.h"
 #include "vusocket.h"
 #include <io.h>
+#include <cstring>
 #include <iostream>
 
 void Client::createSocketAndLogIn() {
@@ -143,15 +144,16 @@ int Client::readFromStdin() {
         stdinBuffer.writeChars(message_.stream_out, strlen(message_.stream_out));
     }
 
-    int len = strlen(message_.stream_out);
-    int send_len = send(sock, message_.stream_out, len, 0);
-    if (send_len) {
-//        cout << "##### Send Success! SIZE: " << send_len << endl;
-        return 1;
-    }else {
-//        cout << "##### Send Error!" << endl;
-        return 0;
-    }
+//    int len = strlen(message_.stream_out);
+//    int send_len = send(sock, message_.stream_out, len, 0);
+//    if (send_len) {
+////        cout << "##### Send Success! SIZE: " << send_len << endl;
+//        return 1;
+//    }else {
+////        cout << "##### Send Error!" << endl;
+//        return 0;
+//    }
+    return 1;
 }
 
 
@@ -169,15 +171,15 @@ int Client::readFromSocket() {
             socketBuffer.writeChars(message_.stream_in, strlen(message_.stream_in));
         }
 
-        if (!strncmp("WHO-OK", message_.stream_in, 6)) {
-
+//        if (!strncmp("WHO-OK", message_.stream_in, 6)) {
+//
 //            cout << ">>>[Online users]: " << message_.stream_in + 6 << ">>>" << endl;
-//            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
-        } else if (!strncmp("DELIVERY", message_.stream_in, 8)) {
-
+////            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
+//        } else if (!strncmp("DELIVERY", message_.stream_in, 8)) {
+//
 //            cout << ">>>[Private Message] from @" << message_.stream_in+9 << ">>>" << endl;
-//            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
-        }
+////            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
+//        }
 
         return 1;
     }
@@ -194,11 +196,36 @@ int Client::readFromSocket() {
 
 void Client::tick() {
     if (!stdinBuffer.isEmpty()) {
-        stdinBuffer.readLine();
+        char send_msg[2000] = {0};
+        string tmp_str = stdinBuffer.readLine();
+        strcpy(send_msg, tmp_str.data());
+        strcat(send_msg, "\n");
+
+        printf("$$$$$$$ %s", send_msg);
+
+        int len = strlen(send_msg);
+        int send_len = send(sock, send_msg, len, 0);
+
+        cout << "Send: " << send_len << endl;
     }
 
     if (!socketBuffer.isEmpty()) {
-        socketBuffer.readLine();
+        char rcv_msg[2000] = {0};
+        string tmp_str = socketBuffer.readLine();
+        strcpy(rcv_msg, tmp_str.data());
+
+        printf("$$$$$$$ %s", rcv_msg);
+
+        if (!strncmp("WHO-OK", rcv_msg, 6)) {
+
+            cout << ">>>[Online users]: " << rcv_msg + 6 << '\n' << ">>>" << endl;
+//            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
+        } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
+
+            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
+//            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
+        }
+
     }
 }
 

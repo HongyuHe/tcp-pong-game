@@ -44,7 +44,7 @@ bool CircularLineBuffer::writeChars(const char *chars, size_t nchars) {
             count += nchars;
             mtx.unlock();
         }
-        printf("[ Write Buffer ]: %s {len:%d}{start:%d}{count = %d}\n", buffer+start, strlen(buffer+start), start, count);
+//        printf("[ Write Buffer ]: %s {len:%d}{start:%d}{count = %d}\n", buffer+start, strlen(buffer+start), start, count);
         return true;
     }
 }
@@ -64,8 +64,8 @@ string CircularLineBuffer::readLine() {
             break;
         }
     }
-    cout << "[ Read Buffer ]: " << output;
-    printf("{start = %d} {count = %d}\n", start, count);
+//    cout << "[ Read Buffer ]: " << output;
+//    printf("{start = %d} {count = %d}\n", start, count);
     return output;
 }
 
