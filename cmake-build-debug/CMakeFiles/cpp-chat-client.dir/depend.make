@@ -5,6 +5,8 @@ CMakeFiles/cpp-chat-client.dir/Application.cpp.obj: ../Application.cpp
 CMakeFiles/cpp-chat-client.dir/Application.cpp.obj: ../Application.h
 
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj: ../CircularLineBuffer.cpp
+CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj: ../CircularLineBuffer.h
+CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj: ../vusocket.h
 
 CMakeFiles/cpp-chat-client.dir/Client.cpp.obj: ../Application.h
 CMakeFiles/cpp-chat-client.dir/Client.cpp.obj: ../CircularLineBuffer.h

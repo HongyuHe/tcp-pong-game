@@ -6,6 +6,8 @@ CMakeFiles/cpp-chat-client.dir/Application.cpp.obj
  C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj
  C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.cpp
+ C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.h
+ C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
 CMakeFiles/cpp-chat-client.dir/Client.cpp.obj
  C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
  C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.h

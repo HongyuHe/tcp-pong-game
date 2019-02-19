@@ -84,10 +84,10 @@ bool Client::FirstHandShake() {
     int len = strlen(login_msg);
     int send_len = send(sock, login_msg, len, 0);
     if (send_len) {
-        cout << "##### Send Success! SIZE: " << send_len << endl;
+//        cout << "##### Send Success! SIZE: " << send_len << endl;
         return true;
     }else {
-        cout << "##### Send Error!" << endl;
+//        cout << "##### Send Error!" << endl;
         return false;
     }
 }
@@ -98,8 +98,8 @@ void Client::SecondHandShake() {
     int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
 
     if (recv_len != -1) {
-        cout << "##### Read Success! SIZE: " << recv_len << endl;
-        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
+//        cout << "##### Read Success! SIZE: " << recv_len << endl;
+//        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
 
         if (!strncmp("IN-USE", message_.stream_in, 6))
             login_status_ = LoginStatus::IN_USE;
@@ -109,19 +109,15 @@ void Client::SecondHandShake() {
             login_status_ = LoginStatus::SUCCESS;
 
     }else {
-        cout << "Read Error" << endl;
-        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
+//        cout << "Read Error" << endl;
+//        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
 
         login_status_ = LoginStatus::FAILE;
     }
 }
 
-void Client::closeSocket() {
-    sock_close(sock);
-}
-
 int Client::readFromStdin() {
-//    printf(">>> ");
+
     const char list_users_c[] = "WHO\n";
     const char send_msg_c[] = "SEND ";
 
@@ -129,8 +125,9 @@ int Client::readFromStdin() {
     fgets(message_.stream_out, MSG_LEN, stdin);
 
     if (!strncmp("!quit", message_.stream_out, 5)) {
-        closeSocket();
         cout << ">>>[Client shut down!]" << endl;
+        closeSocket();
+
     } else if (!strncmp("!who", message_.stream_out, 4)) {
         strcpy(message_.stream_out, list_users_c);
     } else if (!strncmp("@", message_.stream_out, 1)) {
@@ -138,21 +135,21 @@ int Client::readFromStdin() {
         memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
         strcpy(message_.stream_out, send_msg_c);
 
-//        cout << message_.stream_out << endl;
-//        return 1;
+    } else {
+        cout << ">>>[Bad Command! Please try again!]" << ">>>" << endl;
     }
 
-    else {
-        cout << ">>>[Bad Command! Please try again!]" << endl;
+    if (strlen(message_.stream_out) != 0) {
+        stdinBuffer.writeChars(message_.stream_out, strlen(message_.stream_out));
     }
 
     int len = strlen(message_.stream_out);
     int send_len = send(sock, message_.stream_out, len, 0);
     if (send_len) {
-        cout << "##### Send Success! SIZE: " << send_len << endl;
+//        cout << "##### Send Success! SIZE: " << send_len << endl;
         return 1;
     }else {
-        cout << "##### Send Error!" << endl;
+//        cout << "##### Send Error!" << endl;
         return 0;
     }
 }
@@ -164,16 +161,22 @@ int Client::readFromSocket() {
     int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
 
     if (recv_len >= 0) {
-        cout << "##### Read Success! SIZE: " << recv_len << endl;
-        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
+//        cout << "##### Read Success! SIZE: " << recv_len << endl;
+//        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
+
+        if (strlen(message_.stream_in) != 0) {
+//            cout << "$$$" << message_.stream_in << "$$$";
+            socketBuffer.writeChars(message_.stream_in, strlen(message_.stream_in));
+        }
 
         if (!strncmp("WHO-OK", message_.stream_in, 6)) {
 
-            cout << ">>>[Online users]: " << message_.stream_in + 6 << endl;
-
+//            cout << ">>>[Online users]: " << message_.stream_in + 6 << ">>>" << endl;
+//            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
         } else if (!strncmp("DELIVERY", message_.stream_in, 8)) {
 
-            cout << ">>[Private Message] from @" << message_.stream_in+9 << endl;
+//            cout << ">>>[Private Message] from @" << message_.stream_in+9 << ">>>" << endl;
+//            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
         }
 
         return 1;
@@ -190,10 +193,19 @@ int Client::readFromSocket() {
 }
 
 void Client::tick() {
+    if (!stdinBuffer.isEmpty()) {
+        stdinBuffer.readLine();
+    }
 
+    if (!socketBuffer.isEmpty()) {
+        socketBuffer.readLine();
+    }
 }
 
 
+void Client::closeSocket() {
+    sock_close(sock);
+}
 
 
 

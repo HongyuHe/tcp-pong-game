@@ -17,27 +17,30 @@
  */
 class CircularLineBuffer {
 private:
-    static const int bufferSize = 100; // 4096
-    char buffer[bufferSize] = {0};
     std::mutex mtx;
+
     int start = 0;
     int count = 0;
+    bool data_flag = false;
+    static const int bufferSize = 2000; // 4096
+    char buffer[bufferSize] = {0};
+
 public:
-    int freeSpace();
+    int freeSpace();    // 返回剩余空间
 
     bool isFull();
 
     bool isEmpty();
 
-    int nextFreeIndex();
+    bool hasLine(); // 判断是否有数据；
 
-    int findNewline();
+    int nextFreeIndex(); // 下一个写入的位置；
 
-    bool hasLine();
+    int findNewline(); // 找到下一个message；
 
-    bool writeChars(const char *chars, size_t nchars);
+    bool writeChars(const char *chars, size_t nchars);  // 将数据写入buffer；
 
-    std::string readLine();
+    std::string readLine(); // 读出一条message；
 };
 
 
