@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.cpp
+CircularLineBuffer.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.h
+vusocket.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
+io.h
+-
 iostream
 -
 
@@ -17,34 +23,6 @@ string
 -
 mutex
 -
-
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Client.cpp
-Client.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Client.h
-vusocket.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
-io.h
--
-cstring
--
-iostream
--
-
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Client.h
-pthread.h
--
-thread
--
-string.h
--
-iostream
--
-Application.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/Application.h
-vusocket.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
-CircularLineBuffer.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/CircularLineBuffer.h
 
 C:/Users/DELL/Desktop/Ah_VU_workspace/cpp-chat-client/vusocket.h
 iostream

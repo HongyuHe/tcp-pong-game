@@ -15,6 +15,13 @@
       <change afterPath="$PROJECT_DIR$/../Period_4/ComputerNetworks/cpp-chat-client/CircularLineBuffer.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Period_4/ComputerNetworks/cpp-chat-client/Client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CircularLineBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CircularLineBuffer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CircularLineBuffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/CircularLineBuffer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.exe" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +32,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.75789475">
+    <splitter split-orientation="horizontal" split-proportion="0.65668017">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -40,11 +47,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Client.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="64">
-                  <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
+                <state relative-caret-position="1236">
+                  <caret line="219" column="18" lean-forward="true" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                   </folding>
@@ -52,11 +59,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="22">
-                  <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+                <state relative-caret-position="-66">
+                  <caret line="72" column="19" lean-forward="true" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -120,8 +127,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CircularLineBuffer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5">
-                  <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+                <state relative-caret-position="193">
+                  <caret line="40" column="15" lean-forward="true" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
                   <folding>
                     <element signature="e#126#144#0" expanded="true" />
                   </folding>
@@ -250,14 +257,16 @@
       <workItem from="1550564810461" duration="3081000" />
       <workItem from="1550568153615" duration="9948000" />
       <workItem from="1550581200607" duration="2972000" />
+      <workItem from="1551008940968" duration="2091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67402000" />
+    <option name="totallyTimeSpent" value="69493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.15708502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -271,7 +280,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49959514" weight="0.56838363" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.5737122" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.5737122" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50040483" side_tool="true" weight="0.28063944" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.32976827" />
@@ -371,16 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding>
-            <element signature="e#126#144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -391,22 +390,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
+    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        <state relative-caret-position="193">
+          <caret line="40" column="15" lean-forward="true" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#126#144#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
+        <state relative-caret-position="1236">
+          <caret line="219" column="18" lean-forward="true" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="72" column="19" lean-forward="true" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>

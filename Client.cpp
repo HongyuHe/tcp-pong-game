@@ -201,7 +201,7 @@ void Client::tick() {
         strcpy(send_msg, tmp_str.data());
         strcat(send_msg, "\n");
 
-        printf("$$$$$$$ %s", send_msg);
+        printf("$$$$ Send $$$$\n %s\n", send_msg);
 
         int len = strlen(send_msg);
         int send_len = send(sock, send_msg, len, 0);
@@ -214,15 +214,24 @@ void Client::tick() {
         string tmp_str = socketBuffer.readLine();
         strcpy(rcv_msg, tmp_str.data());
 
-        printf("$$$$$$$ %s", rcv_msg);
+        printf("$$$$ Receive $$$$\n %s\n", rcv_msg);
 
+
+        /*Output*/
         if (!strncmp("WHO-OK", rcv_msg, 6)) {
 
-            cout << ">>>[Online users]: " << rcv_msg + 6 << '\n' << ">>>" << endl;
+//            cout << ">>>[Online users List]: "<< endl;
+//            for (int i = 6; i <= strlen(rcv_msg + 6); i++) {
+//                if (*(rcv_msg+i) == ',') {
+//                    cout << '\n' << "@";
+//                } else {
+//                    cout << *(rcv_msg+i);
+//                }
+//            }
 //            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
         } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
 
-            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
+//            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
 //            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
         }
 

@@ -22,7 +22,7 @@ private:
     int start = 0;
     int count = 0;
     bool data_flag = false;
-    static const int bufferSize = 2000; // 4096
+    static const int bufferSize = 500; // 4096
     char buffer[bufferSize] = {0};
 
 public:
@@ -41,6 +41,7 @@ public:
     bool writeChars(const char *chars, size_t nchars);  // 将数据写入buffer；
 
     std::string readLine(); // 读出一条message；
+
 };
 
 
