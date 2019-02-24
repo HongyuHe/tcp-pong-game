@@ -21,7 +21,7 @@ private:
 
     int start = 0;
     int count = 0;
-    bool data_flag = false;
+    bool dirty_flag_ = false;
     static const int bufferSize = 500; // 4096
     char buffer[bufferSize] = {0};
 

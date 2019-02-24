@@ -195,43 +195,44 @@ int Client::readFromSocket() {
 }
 
 void Client::tick() {
-    if (!stdinBuffer.isEmpty()) {
+    if (stdinBuffer.hasLine()) {
         char send_msg[2000] = {0};
         string tmp_str = stdinBuffer.readLine();
         strcpy(send_msg, tmp_str.data());
         strcat(send_msg, "\n");
 
-        printf("$$$$ Send $$$$\n %s\n", send_msg);
+//        printf("$$$$ Send $$$$\n %s\n", send_msg);
 
         int len = strlen(send_msg);
         int send_len = send(sock, send_msg, len, 0);
 
-        cout << "Send: " << send_len << endl;
+//        cout << "Send: " << send_len << endl;
     }
 
-    if (!socketBuffer.isEmpty()) {
+    if (socketBuffer.hasLine()) {
         char rcv_msg[2000] = {0};
         string tmp_str = socketBuffer.readLine();
         strcpy(rcv_msg, tmp_str.data());
 
-        printf("$$$$ Receive $$$$\n %s\n", rcv_msg);
+//        printf("$$$$ Receive $$$$\n %s\n", rcv_msg);
 
 
         /*Output*/
         if (!strncmp("WHO-OK", rcv_msg, 6)) {
 
-//            cout << ">>>[Online users List]: "<< endl;
-//            for (int i = 6; i <= strlen(rcv_msg + 6); i++) {
-//                if (*(rcv_msg+i) == ',') {
-//                    cout << '\n' << "@";
-//                } else {
-//                    cout << *(rcv_msg+i);
-//                }
-//            }
+            cout << ">>>[Online users List]: "<< endl;
+            for (int i = 6; i <= strlen(rcv_msg); i++) {
+                if (*(rcv_msg+i) == ',') {
+                    cout << '\n' << "       @";
+                } else {
+                    cout << *(rcv_msg+i);
+                }
+            }
+            cout << '\n' << ">>> ";
 //            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
         } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
 
-//            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
+            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
 //            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
         }
 

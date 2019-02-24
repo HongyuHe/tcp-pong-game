@@ -16,7 +16,7 @@ bool CircularLineBuffer::writeChars(const char *chars, size_t nchars) {
         int next_free = nextFreeIndex();
 
         if (next_free + nchars > bufferSize) {
-            cout << "______Outside_____\n";
+//            cout << "______Outside_____\n";
             // Handle overflow:
             auto first_sec = (size_t)(bufferSize - next_free);
             size_t second_sec = nchars - first_sec;
@@ -24,7 +24,7 @@ bool CircularLineBuffer::writeChars(const char *chars, size_t nchars) {
             strncpy(buffer+next_free, chars, first_sec);
             strncpy(buffer, chars+first_sec, second_sec); // Stuffing remain data;
         } else {
-            cout << "______Inside______\n";
+//            cout << "______Inside______\n";
             strncpy(buffer+next_free, chars, nchars);
         }
 
@@ -42,9 +42,12 @@ string CircularLineBuffer::readLine() {
 //    mtx.lock();
     string output = "";
 
-    for (int i = start, counter = 1; ; i++, counter++) {
+    if (isEmpty() || !hasLine())
+        return output;
+
+    for (int i = start, counter = 1; counter <= count; i++, counter++) {
         i %= bufferSize;
-        if (*(buffer+i) != '\n' && counter != count) {
+        if (*(buffer+i) != '\n') {
             output += *(buffer + i);
         } else {
             if (mtx.try_lock()) {
@@ -82,19 +85,25 @@ int CircularLineBuffer::nextFreeIndex() {
 }
 
 int CircularLineBuffer::findNewline() {
-    int tmp = 0;
+
+    if (isEmpty()) {
+        dirty_flag_ = false;
+        return -1;
+    }
 
     for (int i = start, counter = 0; counter < count; i++, counter++) {
-        if (*(buffer + i % bufferSize) == '\n') {
-            tmp++;
-            if (tmp == 2)
-                return i + 1;
+        i %= bufferSize;
+        if (*(buffer + i) == '\n') {
+            dirty_flag_ = true;
+            return i;
         }
     }
-    data_flag = false;
+    dirty_flag_ = false;
     return -1;  // Error
 }
 
 bool CircularLineBuffer::hasLine() {
-    return true;
+
+    return findNewline() >= 0;
+//    return dirty_flag_;
 }
