@@ -7,12 +7,15 @@ using namespace std;
 
 bool CircularLineBuffer::writeChars(const char *chars, size_t nchars) {
 //    mtx.lock();
-
-    if (isFull() || nchars > freeSpace()) {
+//    cout << "WriteChars: " << chars << endl;
+//    if (isFull() || nchars > freeSpace()) {
+    if (0) {
 
         return false;
 
     } else {
+//        cout << isFull() << "%%%%%" << freeSpace() << endl;
+
         int next_free = nextFreeIndex();
 
         if (next_free + nchars > bufferSize) {
@@ -73,7 +76,7 @@ bool CircularLineBuffer::isEmpty() {
 }
 
 bool CircularLineBuffer::isFull() {
-    return bufferSize == count;
+    return bufferSize != count;
 }
 
 int CircularLineBuffer::freeSpace() {
@@ -104,6 +107,7 @@ int CircularLineBuffer::findNewline() {
 
 bool CircularLineBuffer::hasLine() {
 
-    return findNewline() >= 0;
-//    return dirty_flag_;
+//    return findNewline() >= 0;
+    findNewline();
+    return dirty_flag_;
 }

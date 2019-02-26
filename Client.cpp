@@ -110,8 +110,8 @@ void Client::SecondHandShake() {
             login_status_ = LoginStatus::SUCCESS;
 
     }else {
-//        cout << "Read Error" << endl;
-//        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
+        cout << "Read Error" << endl;
+        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
 
         login_status_ = LoginStatus::FAILE;
     }
@@ -130,7 +130,9 @@ int Client::readFromStdin() {
         closeSocket();
 
     } else if (!strncmp("!who", message_.stream_out, 4)) {
+        memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
         strcpy(message_.stream_out, list_users_c);
+
     } else if (!strncmp("@", message_.stream_out, 1)) {
         strcat((char *)send_msg_c, message_.stream_out+1);
         memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
@@ -198,13 +200,22 @@ void Client::tick() {
     if (stdinBuffer.hasLine()) {
         char send_msg[2000] = {0};
         string tmp_str = stdinBuffer.readLine();
-        strcpy(send_msg, tmp_str.data());
-        strcat(send_msg, "\n");
-
+        if (tmp_str.length() > 0) {
+            strcpy(send_msg, tmp_str.data());
+            strcat(send_msg, "\n");
+        }
 //        printf("$$$$ Send $$$$\n %s\n", send_msg);
 
         int len = strlen(send_msg);
-        int send_len = send(sock, send_msg, len, 0);
+        if (len > 1) {
+            int send_len = send(sock, send_msg, len, 0);
+            if (send_len > 0) {
+//                cout << "##### Send Success! SIZE: " << send_len << endl;
+            } else {
+//                cout << "##### Send Error!" << endl;
+        }
+
+    }
 
 //        cout << "Send: " << send_len << endl;
     }
@@ -214,7 +225,7 @@ void Client::tick() {
         string tmp_str = socketBuffer.readLine();
         strcpy(rcv_msg, tmp_str.data());
 
-//        printf("$$$$ Receive $$$$\n %s\n", rcv_msg);
+//        printf("\n %s\n", rcv_msg);
 
 
         /*Output*/
