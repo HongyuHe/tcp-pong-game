@@ -6,16 +6,46 @@
 
 void Client::createSocketAndLogIn() {
     sock_init();
+    printf("\n%c%c%c [UDP client] Start %c%c%c\n", 0xDB, 0xDB, 0xDB, 0xDB, 0xDB, 0xDB);
+//    cout << "\n███ [UDP client] Start ███\n";
 
+//    struct sockaddr_in svr_addr;
+//    int ret;
+//    socklen_t addrlen = sizeof(struct sockaddr_in);
+//    char buf[16] = "HELLO-FROM hhy\n";
+//
+//    if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+//        perror("socket");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //sendto()函数需要指定目的端口/地址
+//    svr_addr.sin_family = AF_INET;
+//    svr_addr.sin_port = htons(5382);
+//    svr_addr.sin_addr.s_addr = inet_addr("52.58.97.202");
+//
+////    int tmp = 10;
+////    while (tmp > 0) {
+//        int send_num = sendto(sock, buf, 16, 0, (struct sockaddr* )&svr_addr, addrlen);
+//        cout << "Send: " << send_num << endl;
+////        tmp--;
+////    }
+//
+//    ret = recvfrom(sock, message_.stream_in, 16, 0, (struct sockaddr* )&svr_addr, &addrlen);
+//    if (ret == -1)
+//        fprintf(stderr, "error in Recv: %d %s\n", ret, gai_strerror(ret));
+//    cout << "Ret:" << ret << endl;
+//    cout << "Recv:" << message_.stream_in << endl;
     // Connect to the server //
     const char *server = "52.58.97.202";
-    const char *server_port = "5378";
+    const char *server_port = "5382";
     struct addrinfo hints;
     struct addrinfo *server_list = NULL;
 
     memset(&hints, 0x00, sizeof(hints));
     hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = IPPROTO_UDP;
 
     int rc = getaddrinfo(server, server_port, &hints, &server_list);
     if (rc != 0) {
@@ -26,24 +56,17 @@ void Client::createSocketAndLogIn() {
     // loop through all the results and connect to the first we can
     for (struct addrinfo *p = server_list; p != nullptr; p = p->ai_next) {
         if ((sock = socket(p->ai_family, p->ai_socktype,
-                           p->ai_protocol)) == -1) {
+                           p->ai_protocol)) == INVALID_SOCKET) {
             perror("socket");
             sock_error_code();
             continue;
         }
-        if (connect((SOCKET) sock, p->ai_addr, p->ai_addrlen) == -1) {
-            perror("connect");
-            sock_error_code();
-            sock_close(sock);
-            continue;
-        }
-//        printf("%s\n", ">>> Connect to Sever successfully! Start chatting...\n");
+        severaddlen_ = p->ai_addrlen;
+        serveraddr = p->ai_addr;//        printf("%s\n", ">>> Connect to Sever successfully! Start chatting...\n");
         break; // if we get here, we must have connected successfully
     }
 
-    /**
-     * Log in using a unique name
-     */
+    /* Log in using a unique name */
     while (login_status_ != LoginStatus::SUCCESS) {
         if (FirstHandShake()) {
             SecondHandShake();
@@ -80,27 +103,30 @@ bool Client::FirstHandShake() {
     cout << "\n>>> Please enter your user name:";
     fgets(message_.stream_out, MSG_LEN, stdin);
     strcat(login_msg, message_.stream_out);
-//    cout << login_msg << endl;
+    cout << login_msg << endl;
 
     int len = strlen(login_msg);
-    int send_len = send(sock, login_msg, len, 0);
+//    int send_len = send(sock, login_msg, len, 0);
+    int send_len = sendto(sock, login_msg, len, 0, serveraddr, severaddlen_);
     if (send_len) {
-//        cout << "##### Send Success! SIZE: " << send_len << endl;
+        cout << "##### Send ["<< login_msg <<"]Success! SIZE: " << send_len << endl;
         return true;
     }else {
-//        cout << "##### Send Error!" << endl;
+        cout << "##### Send Error!" << endl;
         return false;
     }
 }
 
 void Client::SecondHandShake() {
+
     memset(&message_.stream_in, 0x00, sizeof(message_.stream_in));
 
-    int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
+//    int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
+    int recv_len = recvfrom(sock, message_.stream_in, MSG_LEN, 0, (sockaddr*)serveraddr, &severaddlen_);
 
     if (recv_len != -1) {
-//        cout << "##### Read Success! SIZE: " << recv_len << endl;
-//        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
+        cout << "##### Read Success! SIZE: " << recv_len << endl;
+        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
 
         if (!strncmp("IN-USE", message_.stream_in, 6))
             login_status_ = LoginStatus::IN_USE;
@@ -110,8 +136,8 @@ void Client::SecondHandShake() {
             login_status_ = LoginStatus::SUCCESS;
 
     }else {
-//        cout << "Read Error" << endl;
-//        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
+        cout << "Read Error" << endl;
+        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
 
         login_status_ = LoginStatus::FAILE;
     }
@@ -130,7 +156,9 @@ int Client::readFromStdin() {
         closeSocket();
 
     } else if (!strncmp("!who", message_.stream_out, 4)) {
+        memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
         strcpy(message_.stream_out, list_users_c);
+
     } else if (!strncmp("@", message_.stream_out, 1)) {
         strcat((char *)send_msg_c, message_.stream_out+1);
         memset(&message_.stream_out, 0x00, sizeof(message_.stream_out));
@@ -144,15 +172,6 @@ int Client::readFromStdin() {
         stdinBuffer.writeChars(message_.stream_out, strlen(message_.stream_out));
     }
 
-//    int len = strlen(message_.stream_out);
-//    int send_len = send(sock, message_.stream_out, len, 0);
-//    if (send_len) {
-////        cout << "##### Send Success! SIZE: " << send_len << endl;
-//        return 1;
-//    }else {
-////        cout << "##### Send Error!" << endl;
-//        return 0;
-//    }
     return 1;
 }
 
@@ -160,36 +179,19 @@ int Client::readFromStdin() {
 int Client::readFromSocket() {
     memset(&message_.stream_in, 0x00, sizeof(message_.stream_in));
 
-    int recv_len = recv(sock, message_.stream_in, MSG_LEN, 0);
+    int recv_len = recvfrom(sock, message_.stream_in, MSG_LEN, 0, (sockaddr*)serveraddr, &severaddlen_);
 
     if (recv_len >= 0) {
-//        cout << "##### Read Success! SIZE: " << recv_len << endl;
-//        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
+        cout << "##### Read Success! SIZE: " << recv_len << endl;
+        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
 
         if (strlen(message_.stream_in) != 0) {
 //            cout << "$$$" << message_.stream_in << "$$$";
             socketBuffer.writeChars(message_.stream_in, strlen(message_.stream_in));
         }
 
-//        if (!strncmp("WHO-OK", message_.stream_in, 6)) {
-//
-//            cout << ">>>[Online users]: " << message_.stream_in + 6 << ">>>" << endl;
-////            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
-//        } else if (!strncmp("DELIVERY", message_.stream_in, 8)) {
-//
-//            cout << ">>>[Private Message] from @" << message_.stream_in+9 << ">>>" << endl;
-////            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
-//        }
-
         return 1;
-    }
-
-//     else if (recv_len == -1) {
-//        cout << "Read Error" << endl;
-//        fprintf(stderr, "error in read(): %d %s\n", recv_len, gai_strerror(recv_len));
-//
-//        return 0;
-    else {
+    } else {
         return 0;
     }
 }
@@ -198,15 +200,22 @@ void Client::tick() {
     if (stdinBuffer.hasLine()) {
         char send_msg[2000] = {0};
         string tmp_str = stdinBuffer.readLine();
-        strcpy(send_msg, tmp_str.data());
-        strcat(send_msg, "\n");
-
+        if (tmp_str.length() > 0) {
+            strcpy(send_msg, tmp_str.data());
+            strcat(send_msg, "\n");
+        }
 //        printf("$$$$ Send $$$$\n %s\n", send_msg);
 
         int len = strlen(send_msg);
-        int send_len = send(sock, send_msg, len, 0);
+        if (len > 1) {
+            int send_len = sendto(sock, send_msg, len, 0, serveraddr, severaddlen_);
+            if (send_len) {
+                cout << "##### Send [ "<<send_msg<<" ]Success! SIZE: " << send_len << endl;
+            }else {
+                cout << "##### Send Error!" << endl;
+            }
 
-//        cout << "Send: " << send_len << endl;
+        }
     }
 
     if (socketBuffer.hasLine()) {
@@ -214,8 +223,7 @@ void Client::tick() {
         string tmp_str = socketBuffer.readLine();
         strcpy(rcv_msg, tmp_str.data());
 
-//        printf("$$$$ Receive $$$$\n %s\n", rcv_msg);
-
+//        printf("\n %s\n", rcv_msg);
 
         /*Output*/
         if (!strncmp("WHO-OK", rcv_msg, 6)) {
@@ -243,6 +251,8 @@ void Client::tick() {
 void Client::closeSocket() {
     sock_close(sock);
 }
+
+
 
 
 

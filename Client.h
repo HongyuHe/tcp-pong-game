@@ -33,6 +33,8 @@ struct Message {
 
 class Client : public Application {
 private:
+    int severaddlen_ = 0;
+    const struct sockaddr *serveraddr;
     struct Message message_;
     LoginStatus login_status_;
 

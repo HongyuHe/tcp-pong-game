@@ -7,35 +7,36 @@ using namespace std;
 
 bool CircularLineBuffer::writeChars(const char *chars, size_t nchars) {
 //    mtx.lock();
-
-    if (isFull() || nchars > freeSpace()) {
+//    cout << "WriteChars: " << chars << endl;
+    if (nchars > freeSpace()) {
 
         return false;
 
-    } else {
-        int next_free = nextFreeIndex();
+    }
 
-        if (next_free + nchars > bufferSize) {
+//    cout << isFull() << "%%%%%" << (isFull() || nchars > freeSpace()) << endl;
+    int next_free = nextFreeIndex();
+
+    if (next_free + nchars > bufferSize) {
 //            cout << "______Outside_____\n";
-            // Handle overflow:
-            auto first_sec = (size_t)(bufferSize - next_free);
-            size_t second_sec = nchars - first_sec;
+        // Handle overflow:
+        auto first_sec = (size_t)(bufferSize - next_free);
+        size_t second_sec = nchars - first_sec;
 
-            strncpy(buffer+next_free, chars, first_sec);
-            strncpy(buffer, chars+first_sec, second_sec); // Stuffing remain data;
-        } else {
+        strncpy(buffer+next_free, chars, first_sec);
+        strncpy(buffer, chars+first_sec, second_sec); // Stuffing remain data;
+    } else {
 //            cout << "______Inside______\n";
-            strncpy(buffer+next_free, chars, nchars);
-        }
+        strncpy(buffer+next_free, chars, nchars);
+    }
 
-        if (mtx.try_lock()) {  // only increase if currently not locked:
-            count += nchars;
-            mtx.unlock();
-        }
+    if (mtx.try_lock()) {  // only increase if currently not locked:
+        count += nchars;
+        mtx.unlock();
+    }
 //        printf("[ Write Buffer ]: %s {len:%d}{start:%d}{count = %d}\n", buffer+start, strlen(buffer+start), start, count);
 //        mtx.unlock();
-        return true;
-    }
+    return true;
 }
 
 string CircularLineBuffer::readLine() {
@@ -104,6 +105,7 @@ int CircularLineBuffer::findNewline() {
 
 bool CircularLineBuffer::hasLine() {
 
-    return findNewline() >= 0;
-//    return dirty_flag_;
+//    return findNewline() >= 0;
+    findNewline();
+    return dirty_flag_;
 }
