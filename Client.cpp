@@ -7,7 +7,7 @@
 void Client::createSocketAndLogIn() {
     sock_init();
     printf("\n%c%c%c [UDP client] Start %c%c%c\n", 0xDB, 0xDB, 0xDB, 0xDB, 0xDB, 0xDB);
-//    cout << "\n███ [UDP client] Start ███\n";
+//    cout << "\n [UDP client] Start \n";
 
 //    struct sockaddr_in svr_addr;
 //    int ret;
@@ -109,10 +109,10 @@ bool Client::FirstHandShake() {
 //    int send_len = send(sock, login_msg, len, 0);
     int send_len = sendto(sock, login_msg, len, 0, serveraddr, severaddlen_);
     if (send_len) {
-        cout << "##### Send ["<< login_msg <<"]Success! SIZE: " << send_len << endl;
+//        cout << "##### Send ["<< login_msg <<"]Success! SIZE: " << send_len << endl;
         return true;
     }else {
-        cout << "##### Send Error!" << endl;
+//        cout << "##### Send Error!" << endl;
         return false;
     }
 }
@@ -125,13 +125,15 @@ void Client::SecondHandShake() {
     int recv_len = recvfrom(sock, message_.stream_in, MSG_LEN, 0, (sockaddr*)serveraddr, &severaddlen_);
 
     if (recv_len != -1) {
-        cout << "##### Read Success! SIZE: " << recv_len << endl;
-        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
+//        cout << "##### Read Success! SIZE: " << recv_len << endl;
+//        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
 
         if (!strncmp("IN-USE", message_.stream_in, 6))
             login_status_ = LoginStatus::IN_USE;
         else if (!strncmp("BUSY", message_.stream_in, 4))
             login_status_ = LoginStatus::BUSY;
+        else if (!strncmp("BAD-RQST-BODY", message_.stream_in, 13))
+            login_status_ = LoginStatus::FAILE;
         else
             login_status_ = LoginStatus::SUCCESS;
 
@@ -182,8 +184,8 @@ int Client::readFromSocket() {
     int recv_len = recvfrom(sock, message_.stream_in, MSG_LEN, 0, (sockaddr*)serveraddr, &severaddlen_);
 
     if (recv_len >= 0) {
-        cout << "##### Read Success! SIZE: " << recv_len << endl;
-        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
+//        cout << "##### Read Success! SIZE: " << recv_len << endl;
+//        cout << "##### Server: " << message_.stream_in << strlen(message_.stream_in) << endl;
 
         if (strlen(message_.stream_in) != 0) {
 //            cout << "$$$" << message_.stream_in << "$$$";
@@ -197,6 +199,8 @@ int Client::readFromSocket() {
 }
 
 void Client::tick() {
+    
+
     if (stdinBuffer.hasLine()) {
         char send_msg[2000] = {0};
         string tmp_str = stdinBuffer.readLine();
@@ -210,9 +214,9 @@ void Client::tick() {
         if (len > 1) {
             int send_len = sendto(sock, send_msg, len, 0, serveraddr, severaddlen_);
             if (send_len) {
-                cout << "##### Send [ "<<send_msg<<" ]Success! SIZE: " << send_len << endl;
+//                cout << "##### Send [ "<<send_msg<<" ]Success! SIZE: " << send_len << endl;
             }else {
-                cout << "##### Send Error!" << endl;
+//                cout << "##### Send Error!" << endl;
             }
 
         }
@@ -237,11 +241,21 @@ void Client::tick() {
                 }
             }
             cout << '\n' << ">>> ";
-//            printf(">>>[Online users]: %s<<<", message_.stream_in+6);
-        } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
 
-            cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
-//            printf(">>>[Private Message] from @:%s {SIZE:%d}<<<", message_.stream_in, strlen(message_.stream_in));
+        } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
+            // The same message is not shown to the user multiple times:
+//            cout << "Pre: " << pre_buffer_ << "\n" << "Rcv: " << rcv_msg << "\n";
+//            cout << "Cmp: "<< strcmp(pre_buffer_, rcv_msg) << endl;
+            if (strcmp(pre_buffer_, rcv_msg)) {
+
+                memset(pre_buffer_, 0x00, MSG_LEN);
+                strcpy(pre_buffer_, rcv_msg);
+
+                cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
+            }
+//            else {
+//                cout << "Same MSG\n";
+//            }
         }
 
     }

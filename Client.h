@@ -37,6 +37,7 @@ private:
     const struct sockaddr *serveraddr;
     struct Message message_;
     LoginStatus login_status_;
+    char pre_buffer_[MSG_LEN] = {0};
 
     bool FirstHandShake();
     void SecondHandShake();

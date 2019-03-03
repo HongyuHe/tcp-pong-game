@@ -13,35 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c20eaa26-60cd-45e8-89e2-f626ee2c9a37" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CircularLineBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CircularLineBuffer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.h" beforeDir="false" afterPath="$PROJECT_DIR$/Client.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Application.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Application.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp-chat-client.exe" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -53,7 +30,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.59595144">
+    <splitter split-orientation="horizontal" split-proportion="0.64291495">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -71,8 +48,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Client.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="96">
-                  <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+                <state relative-caret-position="-118">
+                  <caret line="240" column="17" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -80,8 +57,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-88">
-                  <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+                <state relative-caret-position="308">
+                  <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -142,7 +119,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CircularLineBuffer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
+                <state relative-caret-position="506">
                   <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
                 </state>
               </provider>
@@ -152,7 +129,7 @@
             <entry file="file://$PROJECT_DIR$/Client.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="65">
-                  <caret line="46" selection-start-line="46" selection-end-line="46" />
+                  <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
                   <folding>
                     <element signature="e#129#149#0" expanded="true" />
                     <element signature="e#158#175#0" expanded="true" />
@@ -178,6 +155,8 @@
       <find>list_users</find>
       <find>next_insex</find>
       <find>tick</find>
+      <find>#####</find>
+      <find>pre_buffer</find>
     </findStrings>
     <replaceStrings>
       <replace>sockfd_g</replace>
@@ -187,6 +166,7 @@
       <replace>stream_out</replace>
       <replace>list_users_c</replace>
       <replace>next_index</replace>
+      <replace>pre_buffer_</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -198,9 +178,9 @@
         <option value="$PROJECT_DIR$/Application.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Application.cpp" />
-        <option value="$PROJECT_DIR$/Client.h" />
         <option value="$PROJECT_DIR$/CircularLineBuffer.h" />
         <option value="$PROJECT_DIR$/CircularLineBuffer.cpp" />
+        <option value="$PROJECT_DIR$/Client.h" />
         <option value="$PROJECT_DIR$/Client.cpp" />
       </list>
     </option>
@@ -289,12 +269,13 @@
       <workItem from="1551181714334" duration="1531000" />
       <workItem from="1551352941721" duration="2231000" />
       <workItem from="1551356984534" duration="3963000" />
-      <workItem from="1551419468902" duration="1787000" />
+      <workItem from="1551419468902" duration="4198000" />
+      <workItem from="1551644036557" duration="2941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88366000" />
+    <option name="totallyTimeSpent" value="93718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -307,20 +288,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.15708502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.91474247" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.91474247" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285968" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.49959514" visible="true" weight="0.56838363" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49959514" weight="0.56838363" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.5737122" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50040483" side_tool="true" weight="0.28063944" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -387,6 +367,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -430,7 +417,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CircularLineBuffer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
+        <state relative-caret-position="506">
           <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
@@ -438,7 +425,7 @@
     <entry file="file://$PROJECT_DIR$/Client.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding>
             <element signature="e#129#149#0" expanded="true" />
             <element signature="e#158#175#0" expanded="true" />
@@ -446,17 +433,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CircularLineBuffer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="-118">
+          <caret line="240" column="17" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="17" />
         </state>
       </provider>
     </entry>
