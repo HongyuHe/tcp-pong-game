@@ -106,6 +106,8 @@ void Client::SecondHandShake() {
             login_status_ = LoginStatus::IN_USE;
         else if (!strncmp("BUSY", message_.stream_in, 4))
             login_status_ = LoginStatus::BUSY;
+        else if (!strncmp("BAD-RQST-BODY", message_.stream_in, 13))
+            login_status_ = LoginStatus::FAILE;
         else
             login_status_ = LoginStatus::SUCCESS;
 
