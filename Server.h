@@ -13,6 +13,7 @@
 #include <thread>
 #include <string.h>
 #include <iostream>
+#include <map>
 #include "Application.h"
 #include "vusocket.h"
 #include "CircularLineBuffer.h"
@@ -39,6 +40,7 @@ private:
     SOCKET maxfd;
     int clients_sock[FD_SETSIZE];
     int sub_max;
+    map<string, int> users_map_;
 
     SOCKET sock;
     std::thread socketThread, stdinThread;
