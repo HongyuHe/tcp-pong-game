@@ -42,10 +42,10 @@ RM = "D:\Program Files (x86)\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client
+CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpp-chat-client.dir/depend.make
@@ -58,68 +58,81 @@ include CMakeFiles/cpp-chat-client.dir/flags.make
 
 CMakeFiles/cpp-chat-client.dir/main.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
 CMakeFiles/cpp-chat-client.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp-chat-client.dir/main.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\main.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp-chat-client.dir/main.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\main.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\main.cpp
 
 CMakeFiles/cpp-chat-client.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/main.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\main.cpp > CMakeFiles\cpp-chat-client.dir\main.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\main.cpp > CMakeFiles\cpp-chat-client.dir\main.cpp.i
 
 CMakeFiles/cpp-chat-client.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/main.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\main.cpp -o CMakeFiles\cpp-chat-client.dir\main.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\main.cpp -o CMakeFiles\cpp-chat-client.dir\main.cpp.s
 
 CMakeFiles/cpp-chat-client.dir/Client.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
 CMakeFiles/cpp-chat-client.dir/Client.cpp.obj: ../Client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cpp-chat-client.dir/Client.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\Client.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cpp-chat-client.dir/Client.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\Client.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Client.cpp
 
 CMakeFiles/cpp-chat-client.dir/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/Client.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Client.cpp > CMakeFiles\cpp-chat-client.dir\Client.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Client.cpp > CMakeFiles\cpp-chat-client.dir\Client.cpp.i
 
 CMakeFiles/cpp-chat-client.dir/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/Client.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Client.cpp -o CMakeFiles\cpp-chat-client.dir\Client.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Client.cpp -o CMakeFiles\cpp-chat-client.dir\Client.cpp.s
 
 CMakeFiles/cpp-chat-client.dir/Application.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
 CMakeFiles/cpp-chat-client.dir/Application.cpp.obj: ../Application.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpp-chat-client.dir/Application.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\Application.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Application.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpp-chat-client.dir/Application.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\Application.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Application.cpp
 
 CMakeFiles/cpp-chat-client.dir/Application.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/Application.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Application.cpp > CMakeFiles\cpp-chat-client.dir\Application.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Application.cpp > CMakeFiles\cpp-chat-client.dir\Application.cpp.i
 
 CMakeFiles/cpp-chat-client.dir/Application.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/Application.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\Application.cpp -o CMakeFiles\cpp-chat-client.dir\Application.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Application.cpp -o CMakeFiles\cpp-chat-client.dir\Application.cpp.s
 
 CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
 CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj: ../vusocket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\vusocket.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\vusocket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\vusocket.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\vusocket.cpp
 
 CMakeFiles/cpp-chat-client.dir/vusocket.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/vusocket.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\vusocket.cpp > CMakeFiles\cpp-chat-client.dir\vusocket.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\vusocket.cpp > CMakeFiles\cpp-chat-client.dir\vusocket.cpp.i
 
 CMakeFiles/cpp-chat-client.dir/vusocket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/vusocket.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\vusocket.cpp -o CMakeFiles\cpp-chat-client.dir\vusocket.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\vusocket.cpp -o CMakeFiles\cpp-chat-client.dir\vusocket.cpp.s
 
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj: ../CircularLineBuffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\CircularLineBuffer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\CircularLineBuffer.cpp
 
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\CircularLineBuffer.cpp > CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\CircularLineBuffer.cpp > CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.i
 
 CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\CircularLineBuffer.cpp -o CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\CircularLineBuffer.cpp -o CMakeFiles\cpp-chat-client.dir\CircularLineBuffer.cpp.s
+
+CMakeFiles/cpp-chat-client.dir/Server.cpp.obj: CMakeFiles/cpp-chat-client.dir/flags.make
+CMakeFiles/cpp-chat-client.dir/Server.cpp.obj: ../Server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cpp-chat-client.dir/Server.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\cpp-chat-client.dir\Server.cpp.obj -c C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Server.cpp
+
+CMakeFiles/cpp-chat-client.dir/Server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp-chat-client.dir/Server.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Server.cpp > CMakeFiles\cpp-chat-client.dir\Server.cpp.i
+
+CMakeFiles/cpp-chat-client.dir/Server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp-chat-client.dir/Server.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\Server.cpp -o CMakeFiles\cpp-chat-client.dir\Server.cpp.s
 
 # Object files for target cpp-chat-client
 cpp__chat__client_OBJECTS = \
@@ -127,7 +140,8 @@ cpp__chat__client_OBJECTS = \
 "CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" \
 "CMakeFiles/cpp-chat-client.dir/Application.cpp.obj" \
 "CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj" \
-"CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
+"CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj" \
+"CMakeFiles/cpp-chat-client.dir/Server.cpp.obj"
 
 # External object files for target cpp-chat-client
 cpp__chat__client_EXTERNAL_OBJECTS =
@@ -137,11 +151,12 @@ cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/Client.cpp.obj
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/Application.cpp.obj
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj
+cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/Server.cpp.obj
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/build.make
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/linklibs.rsp
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/objects1.rsp
 cpp-chat-client.exe: CMakeFiles/cpp-chat-client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable cpp-chat-client.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable cpp-chat-client.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\cpp-chat-client.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +169,6 @@ CMakeFiles/cpp-chat-client.dir/clean:
 .PHONY : CMakeFiles/cpp-chat-client.dir/clean
 
 CMakeFiles/cpp-chat-client.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles\cpp-chat-client.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles\cpp-chat-client.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpp-chat-client.dir/depend
 

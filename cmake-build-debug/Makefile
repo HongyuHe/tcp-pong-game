@@ -47,10 +47,10 @@ RM = "D:\Program Files (x86)\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client
+CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_server\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -203,6 +203,33 @@ Client.cpp.s:
 	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
+Server.obj: Server.cpp.obj
+
+.PHONY : Server.obj
+
+# target to build an object file
+Server.cpp.obj:
+	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/Server.cpp.obj
+.PHONY : Server.cpp.obj
+
+Server.i: Server.cpp.i
+
+.PHONY : Server.i
+
+# target to preprocess a source file
+Server.cpp.i:
+	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/Server.cpp.i
+.PHONY : Server.cpp.i
+
+Server.s: Server.cpp.s
+
+.PHONY : Server.s
+
+# target to generate assembly for a file
+Server.cpp.s:
+	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/Server.cpp.s
+.PHONY : Server.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -275,6 +302,9 @@ help:
 	@echo ... Client.obj
 	@echo ... Client.i
 	@echo ... Client.s
+	@echo ... Server.obj
+	@echo ... Server.i
+	@echo ... Server.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

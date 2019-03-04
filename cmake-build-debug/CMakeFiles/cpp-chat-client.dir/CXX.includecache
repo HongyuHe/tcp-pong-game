@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Application.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Application.h
 iostream
 -
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/CircularLineBuffer.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/CircularLineBuffer.h
 cstdlib
 -
 string
@@ -18,11 +18,11 @@ string
 mutex
 -
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Client.cpp
-Client.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Client.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Server.cpp
+Server.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Server.h
 vusocket.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/vusocket.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/vusocket.h
 io.h
 -
 cstring
@@ -30,7 +30,7 @@ cstring
 iostream
 -
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Client.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Server.h
 pthread.h
 -
 thread
@@ -40,13 +40,13 @@ string.h
 iostream
 -
 Application.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Application.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Application.h
 vusocket.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/vusocket.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/vusocket.h
 CircularLineBuffer.h
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/CircularLineBuffer.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/CircularLineBuffer.h
 
-C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/vusocket.h
+C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/vusocket.h
 iostream
 -
 winsock2.h

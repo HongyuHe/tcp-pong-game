@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cpp-chat-client.dir/Application.cpp.obj"
   "CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj"
   "CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
+  "CMakeFiles/cpp-chat-client.dir/Server.cpp.obj"
   "cpp-chat-client.pdb"
   "cpp-chat-client.exe"
   "cpp-chat-client.exe.manifest"

@@ -4,11 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Application.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Application.cpp.obj"
-  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/CircularLineBuffer.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
-  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/Client.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj"
-  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/main.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj"
-  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/vusocket.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_client/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Application.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Application.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/CircularLineBuffer.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CircularLineBuffer.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Client.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/Server.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Server.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/main.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj"
+  "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/vusocket.cpp" "C:/Users/DELL/Desktop/Ah_VU_workspace/CN_lab/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/vusocket.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
