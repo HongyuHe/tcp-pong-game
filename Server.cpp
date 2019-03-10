@@ -48,65 +48,112 @@ void Server::createSocket() {
     FD_ZERO(&all_set);
     FD_SET(sock, &all_set);
 
-    startThreads();
+//    startThreads();
     cout << "Server start...\n";
 
 }
 
 int Server::readFromSocket() {
 
-    /*Data_stream*/
-    int clientfd;
-    string name;
-    map<string, int>::iterator iter;
-
-    for (int i = 0; i <= sub_max; i++) {    /* check all clients for data */
-        if ((clientfd = clients_sock[i]) < 0)
-            continue;
-
-        memset(packet_.stream_in, 0x00, MSG_LEN);
-        if (FD_ISSET(clientfd, &read_set)) {
-            if (recv((SOCKET)clientfd, packet_.stream_in, MSG_LEN, 0) != 0) {
-                if (!strncmp("HELLO-FROM", packet_.stream_in, 10)) {
-
-//                    iter = users_map_.find(packet_.stream_in + 11);
-                    name = packet_.stream_in + 11;
-
-                    cout << "Map: \n";
-                    for (auto it:users_map_) {
-                        cout << "@" << it.first << endl;
-                    }
-                    if (0 == users_map_.count(name)) {
-
-//                        cout << "Count:" << users_map_.count(name) << endl;
-                        cout << "User name:" << name << endl;
-
-                        users_map_.insert(
-                                pair<string, int>(
-                                        name, clientfd
-                                )
-                        );
-                        string msg = "HELLO "+name+"\n";
-                        send((SOCKET)clientfd, (const char*)msg.data(), strlen(msg.data()), 0);
-                    } else {
-                        send((SOCKET)clientfd, "IN-USE\n", 7, 0);
-                        cout << "IN-USE\n";
-                    }
-                }
-
-
-//                if (strlen(packet_.stream_in) != 0) {
-//                    printf("Client: %s %d\n", packet_.stream_in, strlen(packet_.stream_in));
+//    /*Data_stream*/
+//    int clientfd;
+//    string name;
+//    map<string, int>::iterator iter;
+//
+//    for (int i = 0; i <= sub_max; i++) {    /* check all clients for data */
+//        if ((clientfd = clients_sock[i]) < 0)
+//            continue;
+//
+//        memset(packet_.stream_in, 0x00, MSG_LEN);
+//        if (FD_ISSET(clientfd, &read_set)) {
+//
+//            if (recv((SOCKET)clientfd, packet_.stream_in, MSG_LEN, 0) != 0) {
+//                if (strlen(packet_.stream_in) > 1)
+//                    printf("### [Client Packet]->%s %d\n", packet_.stream_in, strlen(packet_.stream_in));
+//
+//                if (!strncmp("HELLO-FROM", packet_.stream_in, 10)) {
+//
+////                    iter = users_map_.find(packet_.stream_in + 11);
+//                    name = packet_.stream_in + 11;
+//                    // 检查整个map：
+//                    cout << "### Map: \n";
+//                    for (auto it:users_map_) {
+//                        cout << "@" << it.first << endl;
+//                    }
+//                    if (0 == users_map_.count(name)) {
+//
+////                        cout << "Count:" << users_map_.count(name) << endl;
+//                        cout << "### User name:" << name << endl;
+//
+//                        users_map_.insert(
+//                                pair<string, int>(
+//                                        name, clientfd
+//                                )
+//                        );
+//                        string msg = "HELLO "+name+"\n";
+//                        send((SOCKET)clientfd, (const char*)msg.data(), strlen(msg.data()), 0);
+//                    } else {
+//                        send((SOCKET)clientfd, "IN-USE\n", 7, 0);
+//                        cout << "IN-USE\n";
+//                    }
+//                } else if (!strncmp("SEND", packet_.stream_in, 4)) {
+//                    string to_name;
+//                    int i;
+//                    for (i = 5; i < strlen(packet_.stream_in); i++) {
+//                        if (packet_.stream_in[i] == ' ') break;
+//                        to_name += packet_.stream_in[i];
+//                    }
+//                    to_name += '\n';
+//
+//                    string msg;
+//                    string from_name;
+//                    string send_msg = "DELIVERY ";
+//                    i++;
+//                    for (; i < strlen(packet_.stream_in); i++)
+//                        msg += packet_.stream_in[i];
+//
+//                    iter = users_map_.find(to_name);
+//                    if (iter != users_map_.end()) {
+//                        cout << "### No."<< iter->second << " is online\n";
+//
+//                        for (auto it:users_map_) {
+//                            if(it.second == clientfd)
+//                                from_name = it.first;
+//                        }
+//                        from_name = from_name.substr(0, from_name.length()-1);    // 去掉\n;
+//                        send_msg += from_name + " " + msg + "\n";
+//                        cout << "### [Private]:" << send_msg;
+//                        int to_fd = iter->second;
+//                        send((SOCKET)to_fd, send_msg.data(), send_msg.length(), 0);
+//                    } else {
+//                        send((SOCKET)clientfd, "UNKNOWN\n", 8, 0);
+//                        cout << "UNKNOWN\n";
+//                    }
+//
+//                    cout << "### To:" << to_name << "### MSG:" << msg << endl;
+//                } else if (!strncmp("WHO", packet_.stream_in, 3)) {
+//                    string onlinelist = "WHO-OK ";
+//                    for (auto it:users_map_) {
+//                        onlinelist += it.first.substr(0, it.first.length()-1);
+//                        onlinelist += ",";
+//                    }
+//                    onlinelist = onlinelist.substr(0, onlinelist.length()-1);
+//                    onlinelist += "\n";
+//
+//                    send((SOCKET)clientfd, onlinelist.data(), onlinelist.length(), 0);
+//                    cout << "Users: " << onlinelist << endl;
+//                } else {
+//                    send((SOCKET)clientfd, "BAD-RQST-BODY\n", 14, 0);
 //                }
-
-            } else {
-                /* connection closed by client */
-                close(clientfd);
-                FD_CLR(clientfd, &all_set);
-                cout << "Close: " << clientfd << endl;
-            }
-        }
-    }
+//
+//            } else {
+//                /* connection closed by client */
+//                close(clientfd);
+//                FD_CLR(clientfd, &all_set);
+//                cout << "Close: " << clientfd << endl;
+//            }
+//        }
+//    }
 
     return 0;
 }
@@ -141,7 +188,7 @@ void Server::tick() {
             exit(1);
         }
 
-        FD_SET(connfd, &all_set);
+        FD_SET(connfd, &all_set);   // Add new fd to sets;
 
         if (connfd > maxfd) {
             maxfd = (SOCKET) connfd;
@@ -152,6 +199,105 @@ void Server::tick() {
 
         if (0 == --num_ready)  //第一次进入函数进行连接accept后就退出（第一次调用select的时候nready为1）；
             return;
+    }
+    /*Data_stream*/
+    int clientfd;
+    string name;
+    map<string, int>::iterator iter;
+
+    for (int i = 0; i <= sub_max; i++) {    /* check all clients for data */
+        if ((clientfd = clients_sock[i]) < 0)
+            continue;
+
+        memset(packet_.stream_in, 0x00, MSG_LEN);
+        if (FD_ISSET(clientfd, &read_set)) {
+
+            if (recv((SOCKET)clientfd, packet_.stream_in, MSG_LEN, 0) != 0) {
+                if (strlen(packet_.stream_in) > 1)
+                    printf("### [Client Packet]->%s %d\n", packet_.stream_in, strlen(packet_.stream_in));
+
+                if (!strncmp("HELLO-FROM", packet_.stream_in, 10)) {
+
+//                    iter = users_map_.find(packet_.stream_in + 11);
+                    name = packet_.stream_in + 11;
+                    // 检查整个map：
+                    cout << "### Map: \n";
+                    for (auto it:users_map_) {
+                        cout << "@" << it.first << endl;
+                    }
+                    if (0 == users_map_.count(name)) {
+
+//                        cout << "Count:" << users_map_.count(name) << endl;
+                        cout << "### User name:" << name << endl;
+
+                        users_map_.insert(
+                                pair<string, int>(
+                                        name, clientfd
+                                )
+                        );
+                        string msg = "HELLO "+name+"\n";
+                        send((SOCKET)clientfd, (const char*)msg.data(), strlen(msg.data()), 0);
+                    } else {
+                        send((SOCKET)clientfd, "IN-USE\n", 7, 0);
+                        cout << "IN-USE\n";
+                    }
+                } else if (!strncmp("SEND", packet_.stream_in, 4)) {
+                    string to_name;
+                    int i;
+                    for (i = 5; i < strlen(packet_.stream_in); i++) {
+                        if (packet_.stream_in[i] == ' ') break;
+                        to_name += packet_.stream_in[i];
+                    }
+                    to_name += '\n';
+
+                    string msg;
+                    string from_name;
+                    string send_msg = "DELIVERY ";
+                    i++;
+                    for (; i < strlen(packet_.stream_in); i++)
+                        msg += packet_.stream_in[i];
+
+                    iter = users_map_.find(to_name);
+                    if (iter != users_map_.end()) {
+                        cout << "### No."<< iter->second << " is online\n";
+
+                        for (auto it:users_map_) {
+                            if(it.second == clientfd)
+                                from_name = it.first;
+                        }
+                        from_name = from_name.substr(0, from_name.length()-1);    // 去掉\n;
+                        send_msg += from_name + " " + msg + "\n";
+                        cout << "### [Private]:" << send_msg;
+                        int to_fd = iter->second;
+                        send((SOCKET)to_fd, send_msg.data(), send_msg.length(), 0);
+                    } else {
+                        send((SOCKET)clientfd, "UNKNOWN\n", 8, 0);
+                        cout << "UNKNOWN\n";
+                    }
+
+                    cout << "### To:" << to_name << "### MSG:" << msg << endl;
+                } else if (!strncmp("WHO", packet_.stream_in, 3)) {
+                    string onlinelist = "WHO-OK ";
+                    for (auto it:users_map_) {
+                        onlinelist += it.first.substr(0, it.first.length()-1);
+                        onlinelist += ",";
+                    }
+                    onlinelist = onlinelist.substr(0, onlinelist.length()-1);
+                    onlinelist += "\n";
+
+                    send((SOCKET)clientfd, onlinelist.data(), onlinelist.length(), 0);
+                    cout << "Users: " << onlinelist << endl;
+                } else {
+                    send((SOCKET)clientfd, "BAD-RQST-BODY\n", 14, 0);
+                }
+
+            } else {
+                /* connection closed by client */
+                close(clientfd);
+                FD_CLR(clientfd, &all_set);
+                cout << "Close: " << clientfd << endl;
+            }
+        }
     }
 }
 
