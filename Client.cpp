@@ -226,7 +226,7 @@ int Client::readFromSocket() {
 
 
 void Client::tick() {
-    
+
 //    string version_update_output = "UPDATE version=1.33.7 <END>";
 //    string command_output = "COMMAND <END>";
 //    string done_output = "DONE <END>";
@@ -266,6 +266,64 @@ void Client::tick() {
 //                } else {
 //                    // cout << "##### Send Error!" << endl;
 //                }
+//            }
+//        }
+//    }
+//
+//// !!! MODIFY .hasLine TO DETECT <END>
+//    if (socketBuffer.hasLine()) {
+//
+//        char rcv_msg[2000] = {0};
+//        tmp_str = socketBuffer.readLine();
+//        strcpy(rcv_msg, tmp_str.data());
+//
+////        printf("\n %s\n", rcv_msg);
+//
+//        if (!strncmp("HELLO", rcv_msg, 5)) {
+//            memset(&tmp_str, 0x00, tmp_str.length());
+//            strcpy(tmp_str.data(), version_update_output.data());
+//            cout << ". ";
+//        }
+//        else if (!strncmp("UPDATE", rcv_msg, 6)) {
+//            memset(&tmp_str, 0x00, tmp_str.length());
+//            strcpy(tmp_str.data(), command_output.data());
+//            cout << ". ";
+//        }
+//        else if (!strncmp("COMMAND", rcv_msg, 7)) {
+//            memset(&tmp_str, 0x00, tmp_str.length());
+//            strcpy(tmp_str.data(), done_output.data());
+//            cout << ". ";
+//        }
+//        else if (!strncmp("BYE", rcv_msg, 3)) {
+//            closeSocket();
+//            exit(0);
+//        }
+//    }
+//    string version_update_output = "UPDATE version=1.33.7";
+//    string command_output = "COMMAND";
+//    string done_output = "DONE";
+//    string tmp_str;
+//
+//    if (true) {
+//
+//        char send_msg[2000] = {0};
+//
+//        if (counter == 0) {
+//            tmp_str = "REPORT botid=60d47fdf01e71d29 os=windows";
+//            counter++;
+//        }
+//        if (tmp_str.length() > 0) {
+//            strcpy(send_msg, tmp_str.data());
+//            strcat(send_msg, " <END>");
+//        }
+//            // printf("$$$$ Send $$$$\n %s\n", send_msg);
+//        int len = strlen(send_msg);
+//        if (len > 1) {
+//            int send_len = send(sock, send_msg, len, 0);
+//            if (send_len > 0) {
+//                // cout << "##### Send Success! SIZE: " << send_len << endl;
+//            } else {
+//                // cout << "##### Send Error!" << endl;
 //            }
 //        }
 //    }
