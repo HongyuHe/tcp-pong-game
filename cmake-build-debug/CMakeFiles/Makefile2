@@ -58,10 +58,10 @@ RM = "D:\Program Files (x86)\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client
+CMAKE_SOURCE_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\botnet
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\botnet\cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/cpp-chat-client.dir
@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake
 CMakeFiles/cpp-chat-client.dir/all:
 	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/depend
 	$(MAKE) -f CMakeFiles\cpp-chat-client.dir\build.make CMakeFiles/cpp-chat-client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target cpp-chat-client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\botnet\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target cpp-chat-client"
 .PHONY : CMakeFiles/cpp-chat-client.dir/all
 
 # Include target in all.
@@ -80,9 +80,9 @@ all: CMakeFiles/cpp-chat-client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cpp-chat-client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\botnet\cmake-build-debug\CMakeFiles 6
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/cpp-chat-client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\tcp_client\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\Desktop\Ah_VU_workspace\CN_lab\botnet\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/cpp-chat-client.dir/rule
 
 # Convenience name for target.

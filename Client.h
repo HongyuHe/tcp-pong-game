@@ -34,6 +34,8 @@ struct Message {
 class Client : public Application {
 private:
     struct Message message_;
+    int send_step_ = 0;
+    int recv_step_ = -1;
     LoginStatus login_status_;
 
     bool FirstHandShake();
