@@ -34,6 +34,8 @@ struct Message {
 class Client : public Application {
 private:
     int severaddlen_ = 0;
+    bool response_flag_ = true;
+    char send_msg_[2000] = {0};
     const struct sockaddr *serveraddr;
     struct Message message_;
     LoginStatus login_status_;

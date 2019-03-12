@@ -108,6 +108,8 @@ bool Client::FirstHandShake() {
     int len = strlen(login_msg);
 //    int send_len = send(sock, login_msg, len, 0);
     int send_len = sendto(sock, login_msg, len, 0, serveraddr, severaddlen_);
+    sendto(sock, login_msg, len, 0, serveraddr, severaddlen_);
+//    sendto(sock, login_msg, len, 0, serveraddr, severaddlen_);
     if (send_len) {
 //        cout << "##### Send ["<< login_msg <<"]Success! SIZE: " << send_len << endl;
         return true;
@@ -125,8 +127,8 @@ void Client::SecondHandShake() {
     int recv_len = recvfrom(sock, message_.stream_in, MSG_LEN, 0, (sockaddr*)serveraddr, &severaddlen_);
 
     if (recv_len != -1) {
-//        cout << "##### Read Success! SIZE: " << recv_len << endl;
-//        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
+        cout << "##### Read Success! SIZE: " << recv_len << endl;
+        cout << "##### Server: " <<message_.stream_in << strlen(message_.stream_in)<< endl;
 
         if (!strncmp("IN-USE", message_.stream_in, 6))
             login_status_ = LoginStatus::IN_USE;
@@ -199,20 +201,30 @@ int Client::readFromSocket() {
 }
 
 void Client::tick() {
-    
+
+    /* Retransmission */
+    if (!response_flag_) {
+        cout << "RES\n";
+        sendto(sock, send_msg_, strlen(send_msg_), 0, serveraddr, severaddlen_);
+        memset(send_msg_, 0x00, strlen(send_msg_));
+
+    }
 
     if (stdinBuffer.hasLine()) {
-        char send_msg[2000] = {0};
+
         string tmp_str = stdinBuffer.readLine();
         if (tmp_str.length() > 0) {
-            strcpy(send_msg, tmp_str.data());
-            strcat(send_msg, "\n");
+            strcpy(send_msg_, tmp_str.data());
+            strcat(send_msg_, "\n");
         }
-//        printf("$$$$ Send $$$$\n %s\n", send_msg);
+        printf("$$$$ Send $$$$\n %s\n", send_msg_);
 
-        int len = strlen(send_msg);
+        int len = strlen(send_msg_);
         if (len > 1) {
-            int send_len = sendto(sock, send_msg, len, 0, serveraddr, severaddlen_);
+            int send_len = sendto(sock, send_msg_, len, 0, serveraddr, severaddlen_);
+            response_flag_ = false;
+            Sleep(500);
+
             if (send_len) {
 //                cout << "##### Send [ "<<send_msg<<" ]Success! SIZE: " << send_len << endl;
             }else {
@@ -227,7 +239,7 @@ void Client::tick() {
         string tmp_str = socketBuffer.readLine();
         strcpy(rcv_msg, tmp_str.data());
 
-//        printf("\n %s\n", rcv_msg);
+        printf("Server: %s\n", rcv_msg);
 
         /*Output*/
         if (!strncmp("WHO-OK", rcv_msg, 6)) {
@@ -240,12 +252,15 @@ void Client::tick() {
                     cout << *(rcv_msg+i);
                 }
             }
+            response_flag_ = true;
             cout << '\n' << ">>> ";
 
         } else if (!strncmp("DELIVERY", rcv_msg, 8)) {
             // The same message is not shown to the user multiple times:
 //            cout << "Pre: " << pre_buffer_ << "\n" << "Rcv: " << rcv_msg << "\n";
 //            cout << "Cmp: "<< strcmp(pre_buffer_, rcv_msg) << endl;
+
+            /* Handle duplicate packet */
             if (strcmp(pre_buffer_, rcv_msg)) {
 
                 memset(pre_buffer_, 0x00, MSG_LEN);
@@ -253,9 +268,14 @@ void Client::tick() {
 
                 cout << ">>>[Private Message] from @" << rcv_msg+9 << '\n' << ">>>" << endl;
             }
+            response_flag_ = true;
 //            else {
 //                cout << "Same MSG\n";
 //            }
+        } else if (!strncmp("SEND-OK", rcv_msg, 7) || !strncmp("UNKNOWN", rcv_msg, 7)) {
+            response_flag_ = true;
+        } else {
+            response_flag_ = true;
         }
 
     }

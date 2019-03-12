@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client.h" beforeDir="false" afterPath="$PROJECT_DIR$/Client.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/Client.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp-chat-client.dir/objects.a" afterDir="false" />
@@ -30,7 +29,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.64291495">
+    <splitter split-orientation="horizontal" split-proportion="0.56842107">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -48,8 +47,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Client.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-118">
-                  <caret line="240" column="17" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="17" />
+                <state relative-caret-position="329">
+                  <caret line="271" column="34" lean-forward="true" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -129,7 +128,7 @@
             <entry file="file://$PROJECT_DIR$/Client.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="65">
-                  <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+                  <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
                   <folding>
                     <element signature="e#129#149#0" expanded="true" />
                     <element signature="e#158#175#0" expanded="true" />
@@ -187,10 +186,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="27" />
-    <option name="y" value="3" />
-    <option name="width" value="1890" />
-    <option name="height" value="960" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -270,12 +269,20 @@
       <workItem from="1551352941721" duration="2231000" />
       <workItem from="1551356984534" duration="3963000" />
       <workItem from="1551419468902" duration="4198000" />
-      <workItem from="1551644036557" duration="2941000" />
+      <workItem from="1551644036557" duration="4910000" />
+      <workItem from="1551676676702" duration="599000" />
+      <workItem from="1551678790772" duration="522000" />
+      <workItem from="1551686719087" duration="175000" />
+      <workItem from="1551687479160" duration="234000" />
+      <workItem from="1551773300993" duration="4552000" />
+      <workItem from="1551789258722" duration="72000" />
+      <workItem from="1552329172001" duration="1141000" />
+      <workItem from="1552372620816" duration="1028000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93718000" />
+    <option name="totallyTimeSpent" value="104010000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,13 +295,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.15708502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.91474247" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.91474247" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,7 +433,7 @@
     <entry file="file://$PROJECT_DIR$/Client.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
-          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
           <folding>
             <element signature="e#129#149#0" expanded="true" />
             <element signature="e#158#175#0" expanded="true" />
@@ -435,8 +443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-118">
-          <caret line="240" column="17" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="17" />
+        <state relative-caret-position="329">
+          <caret line="271" column="34" lean-forward="true" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
         </state>
       </provider>
     </entry>
