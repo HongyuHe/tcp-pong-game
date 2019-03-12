@@ -1,6 +1,6 @@
 #include "CircularLineBuffer.h"
 #include "vusocket.h"
-#include <io.h>
+//#include <io.h>
 #include <iostream>
 
 using namespace std;
@@ -48,7 +48,7 @@ string CircularLineBuffer::readLine() {
 
     for (int i = start, counter = 1; counter <= count; i++, counter++) {
         i %= bufferSize;
-        if (*(buffer+i) != '\n') {
+        if (*(buffer+i) != '>') {
             output += *(buffer + i);
         } else {
             if (mtx.try_lock()) {
@@ -94,7 +94,7 @@ int CircularLineBuffer::findNewline() {
 
     for (int i = start, counter = 0; counter < count; i++, counter++) {
         i %= bufferSize;
-        if (*(buffer + i) == '\n') {
+        if (*(buffer + i) == '>') {
             dirty_flag_ = true;
             return i;
         }
