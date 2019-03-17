@@ -1,3 +1,0 @@
-C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_6a518.dir
-C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir

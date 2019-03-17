@@ -1,3 +1,0 @@
-"D:\Program Files (x86)\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_6a518.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\cmTC_6a518.dir/objects.a @CMakeFiles\cmTC_6a518.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_6a518.dir/objects.a -Wl,--no-whole-archive  -o cmTC_6a518.exe -Wl,--out-implib,libcmTC_6a518.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_6a518.dir\linklibs.rsp

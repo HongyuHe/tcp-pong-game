@@ -1,0 +1,3 @@
+C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/cpp-chat-client.dir
+C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DELL/Desktop/CSgame/tcp_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
