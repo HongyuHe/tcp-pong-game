@@ -1,3 +1,3 @@
 # cpp_socket
-## This repo is a small project for Computer Networks course.
-### Environment: Clion
+
+## This repo contains small projects for Computer Networks course where ach branch represents a different version with special features.
